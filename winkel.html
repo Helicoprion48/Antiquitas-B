@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiquitas Museum - Winkel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <div class="logo-icon"><img src="images/antiquitas.png" alt="Antiquitas logo"></div>
+            </div>
+        </a>
+        <div class="nav-links" id="desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="winkel.html" class="nav-link active">Winkel</a>
+            <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-rechts">
+            <button class="btn" onclick="window.location.href='tickets.html'">Tickets</button>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="winkel.html" class="nav-link active">Winkel</a>
+        <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tickets.html" class="nav-link">Tickets</a>
+    </div>
+
+    <div class="banner">
+        <h1>ANTIQUITAS</h1>
+    </div>
+
+    <div class="container">
+        <main>
+            <h2 style="text-align:center; margin-bottom:20px; font-size:2.5rem; color:var(--steunkleur-3);">Museumshop</h2>
+            
+            <div class="grid-container" id="winkel-container">
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div style="text-align:center; width:100%;">
+                <p><strong>Adres:</strong></p>
+                <p>Marsdiep 293, Alphen aan den Rijn</p>
+                <p>Zuid-Holland, Nederland</p>
+            </div>
+            <div style="text-align:center; width:100%;">
+                <p><strong>Openingstijden:</strong></p>
+                <p>Dinsdag - Vrijdag: 10:00 - 17:00</p>
+                <p>Zaterdag & Zondag: 11:00 - 18:00</p>
+                <p>Maandag: Gesloten</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="images/instagramlogo.png" alt="Instagram"></a>
+                <a href="#"><img src="images/facebooklogo.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitterlogo.png" alt="Twitter"></a>
+            </div>
+            <div class="footer-links">
+                <a href="tickets.html">Tickets</a>
+                <a href="winkel.html">Winkel</a>
+                <a href="voorwerpen.html">Voorwerpen</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <div>&copy; 2026 Antiquitas. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+        document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    const winkelContainer = document.getElementById('winkel-container');
+    const producten = [
+        { name: "Amphora-replica", price: "€ 14,95", file: "winkel-amphora.html", img: "images/amphora.jpg" },
+        { name: "Ludus Fori (spel)", price: "€ 19,95", file: "winkel-ludusfori.html", img: "images/ludusfori.jpg" },
+        { name: "Colosseum beeldje", price: "€ 12,50", file: "winkel-colosseum.html", img: "images/colosseum.jpg" },
+        { name: "Button met Antiquitas logo", price: "€ 1,50", file: "winkel-button.html", img: "images/button.png" },
+        { name: "Romeinse munten", price: "€ 9,95", file: "winkel-munten.html", img: "images/solidus.jpg" },
+        { name: "Beeld Alexander de Grote", price: "€ 34,95", file: "winkel-alexander.html", img: "images/alexander.png" },
+        { name: "Asterix-strips", price: "€ 7,95", file: "winkel-asterix.html", img: "images/Asterix.png" },
+        { name: "Oudgrieks medaillon (Replica)", price: "€ 14,95", file: "winkel-medaillon.html", img: "images/medaillon.jpg" }
+    ];
+
+    producten.forEach(p => {
+        // Onclick toegevoegd aan de grid-item zelf
+        winkelContainer.innerHTML += `
+            <div class="grid-item" onclick="window.location.href='${p.file}'">
+                <img src="${p.img}" alt="${p.name}" class="grid-img" 
+                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23ddd\\'/></svg>'">
+                <p style="font-weight:bold; margin-top:10px;">${p.name}</p>
+                <p style="color:var(--tekst-licht); margin-bottom:10px;">${p.price}</p>
+                <button class="btn" style="width:100%; padding: 8px;">Meer informatie</button>
+            </div>
+        `;
+    });
+    </script>
+</body>
+</html>
