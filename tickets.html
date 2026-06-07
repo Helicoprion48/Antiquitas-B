@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiquitas Museum - Tickets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <div class="logo-icon"><img src="images/antiquitas.png" alt="Antiquitas logo"></div>
+            </div>
+        </a>
+        <div class="nav-links" id="desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="winkel.html" class="nav-link">Winkel</a>
+            <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-rechts">
+            <button class="btn" onclick="window.location.href='tickets.html'">Tickets</button>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="winkel.html" class="nav-link">Winkel</a>
+        <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tickets.html" class="nav-link active">Tickets</a>
+    </div>
+
+    <div class="banner">
+        <h1>ANTIQUITAS</h1>
+    </div>
+
+    <div class="container">
+        <main id="ticket-bestel-sectie" class="form-container">
+            <h2 style="text-align:center; margin-bottom:20px;">Kies een datum:</h2>
+
+            <div class="form-group">
+                <select id="maand-select">
+                    <option>Juni 2026</option>
+                    <option>Juli 2026</option>
+                    <option>Augustus 2026</option>
+                    <option>September 2026</option>
+                    <option>Oktober 2026</option>
+                    <option>November 2026</option>
+                    <option>December 2026</option>
+                    <option>Januari 2027</option>
+                    <option>Februari 2027</option>
+                    <option>Maart 2027</option>
+                    <option>April 2027</option>
+                    <option>Mei 2027</option>
+                </select>
+            </div>
+
+            <div class="calendar">
+                <div class="calendar-day calendar-header">Ma</div>
+                <div class="calendar-day calendar-header">Di</div>
+                <div class="calendar-day calendar-header">Wo</div>
+                <div class="calendar-day calendar-header">Do</div>
+                <div class="calendar-day calendar-header">Vr</div>
+                <div class="calendar-day calendar-header">Za</div>
+                <div class="calendar-day calendar-header">Zo</div>
+
+                <div id="calendar-dates" style="display: contents;"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Aantal volwassenen (boven 14):</label>
+                <input type="number" min="0" value="0">
+            </div>
+
+            <div class="form-group">
+                <label>Aantal kinderen (onder 14):</label>
+                <input type="number" min="0" value="0">
+            </div>
+
+            <button class="btn btn-full-width" onclick="toonSuccesScherm()">Bestellen</button>
+        </main>
+
+        <main id="ticket-succes-sectie" class="form-container" style="display: none; text-align: center; margin-top: 50px;">
+            <h2 style="color: var(--steunkleur-3); font-size: 2rem;">Bestelling Gelukt!</h2>
+            <p style="margin-top: 20px;">Bedankt voor uw bestelling bij Antiquitas Museum. Uw tickets zijn zojuist naar uw e-mailadres verzonden.</p>
+            <br>
+            <button class="btn" onclick="window.location.href='index.html'">Terug naar Home</button>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div style="text-align:center; width:100%;">
+                <p><strong>Adres:</strong></p>
+                <p>Marsdiep 293, Alphen aan den Rijn</p>
+                <p>Zuid-Holland, Nederland</p>
+            </div>
+            <div style="text-align:center; width:100%;">
+                <p><strong>Openingstijden:</strong></p>
+                <p>Dinsdag - Vrijdag: 10:00 - 17:00</p>
+                <p>Zaterdag & Zondag: 11:00 - 18:00</p>
+                <p>Maandag: Gesloten</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="images/instagramlogo.png" alt="Instagram"></a>
+                <a href="#"><img src="images/facebooklogo.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitterlogo.png" alt="Twitter"></a>
+            </div>
+            <div class="footer-links">
+                <a href="tickets.html">Tickets</a>
+                <a href="winkel.html">Winkel</a>
+                <a href="voorwerpen.html">Voorwerpen</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <div>&copy; 2026 Antiquitas. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+
+        const maandSelect = document.getElementById('maand-select');
+        const calendarDatesContainer = document.getElementById('calendar-dates');
+
+        const monthMapping = {
+            "Januari": 0, "Februari": 1, "Maart": 2, "April": 3, "Mei": 4, "Juni": 5,
+            "Juli": 6, "Augustus": 7, "September": 8, "Oktober": 9, "November": 10, "December": 11
+        };
+
+        function updateCalendar() {
+            calendarDatesContainer.innerHTML = '';
+
+            const selectedValue = maandSelect.value;
+            const parts = selectedValue.split(' ');
+            const monthName = parts[0];
+            const year = parseInt(parts[1]);
+
+            const monthIndex = monthMapping[monthName];
+            const totalDays = new Date(year, monthIndex + 1, 0).getDate();
+            const firstDayIndex = new Date(year, monthIndex, 1).getDay();
+            
+            const offset = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
+
+            for (let i = 0; i < offset; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'calendar-day empty';
+                calendarDatesContainer.appendChild(emptyDiv);
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'calendar-day calendar-date';
+                dateDiv.textContent = day;
+
+                dateDiv.addEventListener('click', () => {
+                    const allDates = calendarDatesContainer.querySelectorAll('.calendar-date');
+                    allDates.forEach(d => d.classList.remove('selected'));
+                    dateDiv.classList.add('selected');
+                });
+
+                calendarDatesContainer.appendChild(dateDiv);
+            }
+        }
+
+        maandSelect.addEventListener('change', updateCalendar);
+        updateCalendar();
+
+        function toonSuccesScherm() {
+            document.getElementById('ticket-bestel-sectie').style.display = 'none';
+            document.getElementById('ticket-succes-sectie').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
