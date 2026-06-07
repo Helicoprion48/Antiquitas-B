@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiquitas Museum - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <div class="logo-icon"><img src="images/antiquitas.png" alt="Antiquitas logo"></div>
+            </div>
+        </a>
+        <div class="nav-links" id="desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="winkel.html" class="nav-link">Winkel</a>
+            <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+        <div class="nav-rechts">
+            <button class="btn" onclick="window.location.href='tickets.html'">Tickets</button>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="winkel.html" class="nav-link">Winkel</a>
+        <a href="voorwerpen.html" class="nav-link">Voorwerpen</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="tickets.html" class="nav-link">Tickets</a>
+    </div>
+
+    <div class="banner">
+        <h1>ANTIQUITAS</h1>
+    </div>
+
+    <div class="container">
+        <main class="form-container">
+            <h2 style="text-align:center; margin-bottom:20px; font-size:2.5rem; color:var(--steunkleur-3);">Neem Contact Op</h2>
+            <p style="text-align:center; margin-bottom: 20px;">Heeft u vragen of opmerkingen? Vul het formulier in en we reageren zo snel mogelijk.</p>
+
+            <div class="form-group">
+                <label>Naam:</label>
+                <input type="text" id="contact-naam" placeholder="Uw volledige naam">
+            </div>
+
+            <div class="form-group">
+                <label>E-mailadres:</label>
+                <input type="email" id="contact-email" placeholder="Uw e-mailadres">
+            </div>
+
+            <div class="form-group">
+                <label>Uw Bericht:</label>
+                <textarea rows="5" id="contact-bericht" placeholder="Typ hier uw bericht..."></textarea>
+            </div>
+
+            <button class="btn btn-full-width" onclick="verstuurBericht()">Bericht Versturen</button>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div style="text-align:center; width:100%;">
+                <p><strong>Adres:</strong></p>
+                <p>Marsdiep 293, Alphen aan den Rijn</p>
+                <p>Zuid-Holland, Nederland</p>
+            </div>
+            <div style="text-align:center; width:100%;">
+                <p><strong>Openingstijden:</strong></p>
+                <p>Dinsdag - Vrijdag: 10:00 - 17:00</p>
+                <p>Zaterdag & Zondag: 11:00 - 18:00</p>
+                <p>Maandag: Gesloten</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="images/instagramlogo.png" alt="Instagram"></a>
+                <a href="#"><img src="images/facebooklogo.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitterlogo.png" alt="Twitter"></a>
+            </div>
+            <div class="footer-links">
+                <a href="tickets.html">Tickets</a>
+                <a href="winkel.html">Winkel</a>
+                <a href="voorwerpen.html">Voorwerpen</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <div>&copy; 2026 Antiquitas. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+
+        function verstuurBericht() {
+            // Checken of de velden niet leeg zijn kan hier, maar voor versie B resetten we in ieder geval de data
+            alert('Bedankt voor uw bericht. Wij nemen spoedig contact met u op!');
+            document.getElementById('contact-naam').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-bericht').value = '';
+        }
+    </script>
+</body>
+</html>
