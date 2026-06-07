@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiquitas Museum - Antieke Amphora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <div class="logo-icon"><img src="images/antiquitas.png" alt="Antiquitas logo"></div>
+            </div>
+        </a>
+        <div class="nav-links" id="desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="winkel.html" class="nav-link">Winkel</a>
+            <a href="voorwerpen.html" class="nav-link active">Voorwerpen</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-rechts">
+            <button class="btn" onclick="window.location.href='tickets.html'">Tickets</button>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="winkel.html" class="nav-link">Winkel</a>
+        <a href="voorwerpen.html" class="nav-link active">Voorwerpen</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tickets.html" class="nav-link">Tickets</a>
+    </div>
+
+    <div class="container">
+        <main>
+            <button class="btn" onclick="window.location.href='voorwerpen.html'" style="margin-bottom: 20px;">&larr; Terug naar overzicht</button>
+            <div class="info-card" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                <img src="images/amphora.jpg" alt="Amphora" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 5px; margin-bottom: 20px;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23ddd\\'/></svg>'">
+                <h2 style="font-size: 2rem; margin-bottom: 10px; text-align: center;">Antieke Amphora</h2>
+                <p style="font-weight: bold; color: var(--steunkleur-3); margin-bottom: 15px; text-align: center;">Aardewerk | Klassieke Oudheid (ca. 500 v.Chr.) | Attica, Griekenland</p>
+                <div style="text-align: left; line-height: 1.6; color: #333;">
+                    <p>Deze klassieke Griekse amfora is een uitstekend voorbeeld van het verfijnde aardewerk uit de regio Attica. Amfora's waren de universele opslag- en transportvaten van de antieke wereld. Ze werden op grote schaal gebruikt voor het vervoeren van vloeibare en vaste basisproducten zoals olijfolie, wijn, graan en gepekelde vis.</p><p>Dit specifieke exemplaar is uitgevoerd in de iconische zwartfigurige stijl, een techniek waarbij figuren met een vloeibare kleislib op de rode ondergrond werden geschilderd en details voor het bakken werden ingekrast. De afbeelding toont een mythologische scène waarin de god Dionysos (de god van de wijn) geflankeerd wordt door satyrs en baccanten. Dit type vaten speelde een centrale rol tijdens het Griekse symposium (een aristocratisch drankgelag) en vormde tevens een belangrijk exportproduct waarmee de Griekse cultuur en economie over het hele Middellandse Zeegebied werden verspreid.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<footer>
+        <div class="footer-content">
+            <div style="text-align:center; width:100%;">
+                <p><strong>Adres:</strong></p>
+                <p>Marsdiep 293, Alphen aan den Rijn</p>
+                <p>Zuid-Holland, Nederland</p>
+            </div>
+            <div style="text-align:center; width:100%;">
+                <p><strong>Openingstijden:</strong></p>
+                <p>Dinsdag - Vrijdag: 10:00 - 17:00</p>
+                <p>Zaterdag & Zondag: 11:00 - 18:00</p>
+                <p>Maandag: Gesloten</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="images/instagramlogo.png" alt="Instagram"></a>
+                <a href="#"><img src="images/facebooklogo.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitterlogo.png" alt="Twitter"></a>
+            </div>
+            <div class="footer-links">
+                <a href="tickets.html">Tickets</a>
+                <a href="winkel.html">Winkel</a>
+                <a href="voorwerpen.html">Voorwerpen</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <div>&copy; 2026 Antiquitas. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
