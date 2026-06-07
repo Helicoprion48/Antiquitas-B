@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antiquitas Museum - Voorwerpen Collectie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo-container"><div class="logo-icon"><img src="images/antiquitas.png" alt="Antiquitas logo"></div></div>
+        </a>
+        <div class="nav-links" id="desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="winkel.html" class="nav-link">Winkel</a>
+            <a href="voorwerpen.html" class="nav-link active">Voorwerpen</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-rechts">
+            <button class="btn" onclick="window.location.href='tickets.html'">Tickets</button>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="winkel.html" class="nav-link">Winkel</a>
+        <a href="voorwerpen.html" class="nav-link active">Voorwerpen</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="tickets.html" class="nav-link">Tickets</a>
+    </div>
+
+    <div class="banner"><h1>ANTIQUITAS</h1></div>
+
+    <div class="container">
+        <main>
+            <h2 style="text-align:center; margin-bottom:20px; font-size:2.5rem; color:var(--steunkleur-3);">Museumcollectie</h2>
+            <div class="grid-container" id="voorwerpen-container"></div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div style="text-align:center; width:100%;">
+                <p><strong>Adres:</strong></p>
+                <p>Marsdiep 293, Alphen aan den Rijn</p>
+                <p>Zuid-Holland, Nederland</p>
+            </div>
+            <div style="text-align:center; width:100%;">
+                <p><strong>Openingstijden:</strong></p>
+                <p>Dinsdag - Vrijdag: 10:00 - 17:00</p>
+                <p>Zaterdag & Zondag: 11:00 - 18:00</p>
+                <p>Maandag: Gesloten</p>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="images/instagramlogo.png" alt="Instagram"></a>
+                <a href="#"><img src="images/facebooklogo.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitterlogo.png" alt="Twitter"></a>
+            </div>
+            <div class="footer-links">
+                <a href="tickets.html">Tickets</a>
+                <a href="winkel.html">Winkel</a>
+                <a href="voorwerpen.html">Voorwerpen</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+            <div>&copy; 2026 Antiquitas. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+        const container = document.getElementById('voorwerpen-container');
+        const voorwerpen = [
+            { name: "Amfora", meta: "Aardewerk | Klassieke Oudheid | Griekenland", file: "voorwerp-amfora.html", img: "images/amphora.jpg" },
+            { name: "Bronzen buste", meta: "Beeldhouwkunst | Romeinse Tijd | Italië", file: "voorwerp-buste.html", img: "images/buste.png" },
+            { name: "Gouden Solidus", meta: "Numismatiek | Laat-Romeinse Tijd | Constantinopel", file: "voorwerp-solidus.html", img: "images/solidus.jpg" },
+            { name: "Vuurstenen bijl", meta: "Werktuigen | Neolithicum | Nederland", file: "voorwerp-bijl.html", img: "images/bijl.jpg" },
+            { name: "Zilveren armband", meta: "Sieraden | Vroege Middeleeuwen | Scandinavië", file: "voorwerp-armband.html", img: "images/armband.png" },
+            { name: "Klei tablet", meta: "Schrift | Brontijd | Mesopotamië", file: "voorwerp-kleitablet.html", img: "images/kleitablet.jpg" },
+            { name: "Middeleeuws zwaard", meta: "Wapens | Volle Middeleeuwen | West-Europa", file: "voorwerp-zwaard.html", img: "images/zwaard.jpg" },
+            { name: "Porseleinen vaas", meta: "Keramiek | Ming-dynastie | China", file: "voorwerp-vaas.html", img: "images/vaas.jpg" }
+        ];
+
+        voorwerpen.forEach(v => {
+            // Onclick toegevoegd aan de grid-item zelf
+            container.innerHTML += `
+                <div class="grid-item" onclick="window.location.href='${v.file}'">
+                    <img src="${v.img}" alt="${v.name}" class="grid-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23ddd\\'/></svg>'">
+                    <p style="font-weight:bold; margin-top:10px;">${v.name}</p>
+                    <p style="color:var(--tekst-licht); font-size:0.85rem; margin-bottom:15px;">${v.meta}</p>
+                    <button class="btn" style="width:100%; padding: 8px;">Bekijk details</button>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
