@@ -396,11 +396,8 @@ footer {
         grid-template-columns: repeat(4, 1fr);
     }
     
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+    /* LET OP: .footer-content is hier verwijderd, zodat hij de standaard 
+       verticale 'column' lay-out van de mobiele weergave behoudt! */
 
     .footer-bottom {
         display: grid;
